@@ -1,8 +1,8 @@
-import { AddContacts , EditContacts , UpdateContacts , DeleteContacts  } from "../Constant";
+import { AddContacts , EditContacts , UpdateContacts , DeleteContacts , SelectAllContacts , ClearAllContacts ,  UNSELECTALLAllContacts   } from "../Constant";
  
 
 
-//actions
+//actions 
 export const AddContact = (actionpara) => {
     return {
       type: AddContacts,
@@ -23,8 +23,23 @@ export const AddContact = (actionpara) => {
     payload :  contactupdated,
   })
 
-
+//delet particul tab item 
   export const   DeletcontactsAction = (DeletDataId) => ({
     type: DeleteContacts,
     payload :  DeletDataId,
   })
+  //selct all contacts
+  export const   SelectAllContactsAction  = (SelectallId) => ({
+    type: SelectAllContacts,
+    payload :  SelectallId,
+  })
+
+ // clear selected contact orr unselect
+ export const   UNSELECTALLAllContactsAction  = () => ({
+  type:  UNSELECTALLAllContacts ,
+})
+
+ // delet all selected contact  
+ export const   ClearAllContactsAction  = () => ({
+  type:  ClearAllContacts ,
+})

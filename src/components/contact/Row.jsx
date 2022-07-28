@@ -2,7 +2,6 @@ import React from "react";
 import Avatar from "react-avatar";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Fab from "@mui/material/Fab";
 import { Link } from "react-router-dom";
 import { DeletcontactsAction } from "../../actions/index";
 import { useDispatch } from "react-redux";
@@ -19,8 +18,9 @@ export const Row = (props) => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
                 id="flexCheckDefault"
+                value={props.checkboxState}
+                checked={props.checkboxState}
               />
               <label className="form-check-label" htmlFor="flexCheckDefault">
                 {props.data.id}
@@ -43,14 +43,14 @@ export const Row = (props) => {
           <td className="col_5">
             <Link
               to={`/EditContactpage/${props.data.id}`}
-              className="me-3 logox  "
+              className="me-3 logox"
             >
               <EditIcon />
             </Link>
 
-            <button className=" bg-danger logox ">
+            <div className=" bg-danger logox " onClick={()=>{dispatch(DeletcontactsAction(props.data.id))}}>
               <DeleteIcon />
-            </button>
+            </div>
           </td>
         </tr>
       </>

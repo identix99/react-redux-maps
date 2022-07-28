@@ -1,4 +1,4 @@
-import {AddContacts , EditContacts , UpdateContacts , DeleteContacts } from "../Constant"
+import { AddContacts , EditContacts , UpdateContacts , DeleteContacts , SelectAllContacts , ClearAllContacts , UNSELECTALLAllContacts  } from "../Constant";
 
 
 
@@ -237,6 +237,7 @@ const inhitialState = {
       },
     ],
    Fillcontacts : null ,
+   selectedContacts : [],
   };
   
   
@@ -275,6 +276,18 @@ const inhitialState = {
         contacts:  state.contacts.filter((filteritem) => filteritem.id != action.payload)
       }
     
+      case  SelectAllContacts : return{
+        ...state ,
+        selectedContacts : action.payload
+      }
+      case UNSELECTALLAllContacts : return{
+        ...state , 
+        selectedContacts :  []
+      }
+      case ClearAllContacts : return {
+        ...state,
+        contacts : [],
+      }
        default: return state;
     }
   };
